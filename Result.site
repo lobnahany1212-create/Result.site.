@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>نموذج اختيار بيانات الطالب</title>
+<style>
+body{font-family:Tahoma,Arial;background:#eef2f7;margin:0}
+.header{background:#003a8f;color:#fff;padding:18px;text-align:center;border-bottom:4px solid #0d6efd}
+.header h2{margin:0;font-size:26px}
+.header p{margin:6px 0 0;font-size:14px;opacity:.9}
+.container{max-width:920px;margin:18px auto;background:#fff;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08);overflow:hidden;padding:20px}
+label{display:block;margin:10px 0 5px;font-weight:bold}
+select,input{width:100%;padding:8px;margin-bottom:15px;border-radius:4px;border:1px solid #ccc;font-size:14px}
+button{background:#003a8f;color:#fff;padding:10px 15px;border:none;border-radius:4px;cursor:pointer;font-size:15px}
+button:hover{background:#0d6efd}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{border:1px solid #d6d6d6;padding:10px;text-align:center;font-size:15px}
+th{background:#f1f5fb;color:#003a8f;font-weight:bold}
+tr:nth-child(even) td{background:#fafcff}
+.summary{background:#f8f9fa;border-top:2px solid #0d6efd;margin-top:0}
+.footer{text-align:center;color:#666;padding:12px;font-size:13px;background:#f1f5fb;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="header">
+<h2>نموذج بيانات الطالب</h2>
+<p>اختر بياناتك لعرض النتيجة</p>
+</div>
+<div class="container">
+<label>اختر الكلية:</label>
+<select id="faculty">
+  <option value="تجارة">تجارة</option>
+  <option value="إدارة أعمال">إدارة أعمال</option>
+  <option value="اقتصاد">اقتصاد</option>
+  <option value="قانون">قانون</option>
+</select>
+<label>نوع الدراسة:</label>
+<select id="studyType">
+  <option value="تجارة">تجارة</option>
+  <option value="انتظام">انتظام</option>
+  <option value="انتساب">انتساب</option>
+</select>
+<label>اختر الفرقة / المستوى:</label>
+<select id="level">
+  <option value="أولى">أولى</option>
+  <option value="ثانية">ثانية</option>
+  <option value="ثالثة">ثالثة</option>
+  <option value="رابعة">رابعة</option>
+</select>
+<label>اختر الفصل الدراسي:</label>
+<select id="semester">
+  <option value="الفصل الأول">الفصل الأول</option>
+  <option value="الفصل الثاني">الفصل الثاني</option>
+</select>
+<label>نوع الطالب:</label>
+<select id="studentType">
+  <option value="وافد">وافد</option>
+  <option value="غير وافد">غير وافد</option>
+</select>
+<label>الرقم القومي أو رقم الجلوس:</label>
+<input type="text" id="studentID" placeholder="ادخل الرقم هنا">
+<button onclick="showResult()">عرض النتيجة</button>
+<div id="resultArea"></div>
+</div>
+<div class="footer">© نموذج نتيجة شخصي</div>
+<script>
+function showResult() {
+  var faculty = document.getElementById('faculty').value;
+  var studyType = document.getElementById('studyType').value;
+  var level = document.getElementById('level').value;
+  var semester = document.getElementById('semester').value;
+  var studentType = document.getElementById('studentType').value;
+  var studentID = document.getElementById('studentID').value;var html = '<h3>بيانات الطالب</h3>' + '<p><strong>الكلية:</strong> ' + faculty + '</p>' + '<p><strong>نوع الدراسة:</strong> ' + studyType + '</p>' + '<p><strong>الفرقة / المستوى:</strong> ' + level + '</p>' + '<p><strong>الفصل الدراسي:</strong> ' + semester + '</p>' + '<p><strong>نوع الطالب:</strong> ' + studentType + '</p>' + '<p><strong>الرقم القومي أو رقم الجلوس:</strong> ' + studentID + '</p>';
+
+html += '<table>' + '<tr><th>المادة</th><th>التقدير</th></tr>' + '<tr><td>مبادئ محاسبة التكاليف</td><td>جيد</td></tr>' + '<tr><td>إدارة منظمات حكومية</td><td>جيد</td></tr>' + '<tr><td>بحوث تسويق</td><td>مقبول</td></tr>' + '<tr><td>أساليب كمية في الإدارة</td><td>جيد</td></tr>' + '<tr><td>محاسبة شركات</td><td>جيد جدًا</td></tr>' + '<tr><td>اقتصاديات نقود و بنوك</td><td>مقبول</td></tr>' + '<tr><td>تمويل و إدارة مالية</td><td>جيد</td></tr>' + '</table>';
+
+document.getElementById('resultArea').innerHTML = html; } </script>
+
+</body>
+</html>
